@@ -9,14 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Build  
-      uses: montudor/action-zip@v0.1.0
+      - uses: actions/checkout@master
+      - name: Archive Release
+      uses: thedoctor0/zip-release@master
       with:
-        args: zip -qq -r project.zip . -i .
+        filename: 'release.zip'
+    #- name: Build  
+    #  uses: montudor/action-zip@v0.1.0
+    #  with:
+    #    args: zip -qq -r project.zip . -i .
       
-    - name: Upload to release
-      uses: JasonEtco/upload-to-release@v0.1.1
-      with:
-        args: project.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #- name: Upload to release
+    #  uses: JasonEtco/upload-to-release@v0.1.1
+    #  with:
+    #    args: project.zip
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
