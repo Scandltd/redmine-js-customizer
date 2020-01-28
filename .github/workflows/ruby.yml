@@ -14,6 +14,12 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         filename: 'release.zip'
+    - name: Upload to release
+      uses: JasonEtco/upload-to-release@v0.1.1
+      with:
+        args: release.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     #- name: Build  
     #  uses: montudor/action-zip@v0.1.0
     #  with:
