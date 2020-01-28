@@ -19,6 +19,8 @@ jobs:
       with:
     # Input file
         file: release.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     # File type
   
     #- name: Build  
