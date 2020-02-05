@@ -17,6 +17,7 @@ jobs:
         nextReleasedVersion = $majorVersion.$(($minorVersion + 1))
         git tag $nextReleasedVersion
         git push --tags
+    - name: Package
       run: zip -r redmine-js-cutomizer.zip .
       
 #     - name: Archive Release
