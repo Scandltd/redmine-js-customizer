@@ -10,17 +10,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-    - name: Arhive
-      run: |
+    - name: Bash for GitHub Actions
+      run:
         latest_tag=`git describe --tags`
-        minorVersion=`$latest_tag | cut -d '.' -f 3-`
-        echo $minorVersion
-        majorVersion=`$latest_tag | cut -f1-2 -d "."`
-        echo $majorVersion
-        nextReleasedVersion = $majorVersion.$(($minorVersion + 1))
-        echo $nextReleasedVersion
-        git tag $nextReleasedVersion
-        git push --tags
+#         minorVersion=`$latest_tag | cut -d '.' -f 3-`
+#         echo $minorVersion
+#         majorVersion=`$latest_tag | cut -f1-2 -d "."`
+#         echo $majorVersion
+#         nextReleasedVersion = $majorVersion.$(($minorVersion + 1))
+#         echo $nextReleasedVersion
+#         git tag $nextReleasedVersion
+#         git push --tags
     - name: Package
       run: zip -r redmine-js-cutomizer.zip .
       
