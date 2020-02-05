@@ -13,8 +13,11 @@ jobs:
     - name: Arhive
       run: |
         minorVersion=`git describe --tags | cut -d '.' -f 3-`
+        echo $minorVersion
         majorVersion=`git describe --tags | cut -f1-2 -d "."`
+        echo $majorVersion
         nextReleasedVersion = $majorVersion.$(($minorVersion + 1))
+        echo $nextReleasedVersion
         git tag $nextReleasedVersion
         git push --tags
     - name: Package
