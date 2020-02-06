@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2.0.0
     - name: Bash for GitHub Actions
       run:
-        git tag
+        ls -la
 #         latest_tag=`git describe --tags`
 #         echo $latest_tag
 #         minorVersion=`$latest_tag | cut -d '.' -f 3-`
