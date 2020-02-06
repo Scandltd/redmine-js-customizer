@@ -13,6 +13,7 @@ jobs:
     - name: Bash for GitHub Actions
       run:
         ls -la
+        git tag
 #         latest_tag=`git describe --tags`
 #         echo $latest_tag
 #         minorVersion=`$latest_tag | cut -d '.' -f 3-`
