@@ -11,14 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2.0.0
       - name: Get Latest Tag
-        id: tag
-        uses: actions/github-script@0.2.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            return context.payload.ref.replace(/\/refs\/tags\//, '');
-      - name: Echo
-        run: echo ${{ steps.tag.outputs.result }}
+        run: |
+          echo "Hello World!"
 #         latest_tag=`git describe --tags`
 #         echo $latest_tag
 #         minorVersion=`$latest_tag | cut -d '.' -f 3-`
