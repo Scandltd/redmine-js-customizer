@@ -9,11 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2.0.0
-    - name: Get Latest Tag
-      uses: WyriHaximus/github-action-get-previous-tag@0.1.0
-      env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v2.0.0
+      - name: Get Latest Tag
+        id: tag
+        uses: actions/github-script@0.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            return context.payload.ref.replace(/\/refs\/tags\//, '');
+      - name: Echo
+        run: echo ${{ steps.tag.outputs.result }}
 #         latest_tag=`git describe --tags`
 #         echo $latest_tag
 #         minorVersion=`$latest_tag | cut -d '.' -f 3-`
