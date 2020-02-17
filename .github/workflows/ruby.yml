@@ -15,11 +15,17 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: 'release.zip'
-      - name: Upload asset to release
-        uses: actions-github/upload-to-release@v1.0.0
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.17.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          RELEASE_BRANCHES: klias-ci
+          DEFAULT_BUMP: patch
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
         with:
-      # Input file
-          file: release.zip
+          args: release.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         #       - name: Bump version and push tag
