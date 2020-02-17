@@ -10,11 +10,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2.0.0
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.17.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
         
     
 #        latest_tag=`git describe --tags`
