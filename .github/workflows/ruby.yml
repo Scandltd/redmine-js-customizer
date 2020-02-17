@@ -2,8 +2,6 @@ name: CI
 
 on:
   push:
-    branches:
-      - klias-ci
 
 jobs:
   build:
@@ -12,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@master
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.17.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
+          RELEASE_BRANCHES: klias-ci
         
     
 #        latest_tag=`git describe --tags`
