@@ -1,3 +1,5 @@
+![CI](https://github.com/Scandltd/redmine-js-customizer/workflows/CI/badge.svg?branch=klias-ci)
+
 Js Includer
 ====================
 
