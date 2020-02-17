@@ -11,10 +11,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - name: Archive Release
-        uses: thedoctor0/zip-release@master
-        with:
-          filename: 'release.zip'
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.17.2
         env:
@@ -22,57 +18,3 @@ jobs:
           WITH_V: true
           RELEASE_BRANCHES: klias-ci
           DEFAULT_BUMP: patch
-      - name: Upload to release
-        uses: JasonEtco/upload-to-release@master
-        with:
-          args: release.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #       - name: Bump version and push tag
-#         uses: anothrNick/github-tag-action@1.17.2
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#           WITH_V: true
-#           RELEASE_BRANCHES: klias-ci
-#           DEFAULT_BUMP: patch
-        
-    
-#        latest_tag=`git describe --tags`
-#        echo $latest_tag
-#         majorVersion=`$latest_tag | cut -f1-2 -d "."`
-#         echo $majorVersion
-#         nextReleasedVersion = $majorVersion.$(($minorVersion + 1))
-#         echo $nextReleasedVersion
-#         git tag $nextReleasedVersion
-#         git push --tags
-#     - name: Package
-#       run: zip -r redmine-js-cutomizer.zip .
-      
-#     - name: Archive Release
-#       uses: thedoctor0/zip-release@master
-#       with:
-#         filename: 'release.zip'
-#     - name: Upload asset to release
-#       uses: actions-github/upload-to-release@v1.0.0
-#       with:
-#     # Input file
-#         file: release.zip
-#       env:
-#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
-    
-    
-    
-    # File type
-  
-    #- name: Build  
-    #  uses: montudor/action-zip@v0.1.0
-    #  with:
-    #    args: zip -qq -r project.zip . -i .
-      
-    #- name: Upload to release
-    #  uses: JasonEtco/upload-to-release@v0.1.1
-    #  with:
-    #    args: project.zip
-    #  env:
-    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
